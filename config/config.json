@@ -75,7 +75,7 @@
          * Overrides default lusca configuration to disable CSRF handling. Protected routes
          * should be defined below
          */
-         "appsec": {
+        "appsec": {
             "priority": 110,
             "module": {
                 "name": "lusca",
@@ -94,7 +94,7 @@
         /**
          * Routes that are CSRF go below.
          */
-         "csrf": {
+        "csrf": {
             "enabled": true,
             "priority": 111,
             "route": "/((?!api))*",
@@ -103,6 +103,5 @@
                 "arguments": [ { "csrf": "true" } ]
             }
         }
-
     }
 }
