@@ -70,18 +70,13 @@
             }
         },
 
-
         /**
-         * Overrides default lusca configuration to disable CSRF handling. Protected routes
-         * should be defined below
+         * Override the default lusca configuration to disable CSRF handling.
          */
         "appsec": {
-            "priority": 110,
             "module": {
-                "name": "lusca",
                 "arguments": [
                     {
-                        "csrf": false,
                         "xframe": "SAMEORIGIN",
                         "p3p": false,
                         "csp": false
@@ -90,9 +85,10 @@
             }
         },
 
-
         /**
-         * Routes that are CSRF go below.
+         * Enable *ONLY* CSRF filtered by route.
+         * Note: The route "regex" needs the double parens
+         * because of how express parses route strings.
          */
         "csrf": {
             "enabled": true,
@@ -100,7 +96,8 @@
             "route": "/((?!api))*",
             "module": {
                 "name": "lusca",
-                "arguments": [ { "csrf": "true" } ]
+                "method": "csrf",
+                "arguments": [ {} ]
             }
         }
     }
