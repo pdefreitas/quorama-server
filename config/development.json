@@ -82,13 +82,17 @@
         /**
          * Routes that are CSRF go below.
          */
-        "csrf": {
+         "appsecprotect": {
+            "route": "/protect",
             "enabled": true,
             "priority": 111,
-            "route": "/((?!api))*",
             "module": {
                 "name": "lusca",
-                "arguments": [ { "csrf": "true" } ]
+                "arguments": [
+                    {
+                        "csrf": true
+                    }
+                ]
             }
         }
     }
