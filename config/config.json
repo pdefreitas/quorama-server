@@ -76,7 +76,9 @@
          * should be defined below
          */
          "appsec": {
+            "priority": 110,
             "module": {
+                "name": "lusca",
                 "arguments": [
                     {
                         "csrf": false,
