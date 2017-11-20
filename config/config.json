@@ -79,6 +79,7 @@
             "module": {
                 "arguments": [
                     {
+                        "csrf": false,
                         "xframe": "SAMEORIGIN",
                         "p3p": false,
                         "csp": false
@@ -97,8 +98,7 @@
             "route": "/((?!api))*",
             "module": {
                 "name": "lusca",
-                "method": "csrf",
-                "arguments": [ {} ]
+                "arguments": [ { "csrf": "true" } ]
             }
         }
 
