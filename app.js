@@ -23,6 +23,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api', function(req, res, next) {
+  console.log(req);  
+});
+
 app.use('/', index);
 app.use('/users', users);
 app.use('/api', api);

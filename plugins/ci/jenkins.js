@@ -6,7 +6,6 @@ app.get('/', function (req, res, next) {
 })
 
 app.post('/artifacts/add', function(req, res, next) {
-  console.log(req);
   res.json(200, {status: true})
 });
 
