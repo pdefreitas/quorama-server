@@ -3,8 +3,6 @@ var app = express()
 var multipart = require('connect-multiparty')
 var multipartMiddleware = multipart()
 
-app.use(express.bodyParser());
-
 app.get('/', function (req, res, next) {
   res.render('index', { title: 'Quorama Server - Jenkins Plugin Demo Page' })  
 })
