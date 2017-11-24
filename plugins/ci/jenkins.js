@@ -1,6 +1,8 @@
 var express = require('express')
 var app = express()
 
+app.use(express.bodyParser());
+
 app.get('/', function (req, res, next) {
   res.render('index', { title: 'Quorama Server - Jenkins Plugin Demo Page' })  
 })
