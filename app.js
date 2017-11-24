@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(multipartMiddleware, function(req, res, next) {
   console.log(req.headers);
   console.log(req.body); 
+  console.log(req.files);
   next()
 });
 
