@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var multipart = require('connect-multiparty')
+var multipartMiddleware = multipart()
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 var api   = require('./api');
@@ -18,11 +21,11 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(express.bodyParser());
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req, res, next) {
+app.use(multipartMiddleware, function(req, res, next) {
   console.log(req.headers);
   console.log(req.body); 
   next()
