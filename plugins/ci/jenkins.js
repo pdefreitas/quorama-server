@@ -9,6 +9,14 @@ app.get('/', function (req, res, next) {
 
 app.post('/artifacts/add', multipartMiddleware, function(req, res, next) {
   console.log(req.body, req.files);
+
+  var project_name = req.headers.quoramaproject;
+  
+  req.files.forEach(file => {
+    var file_name = file.originalFilename;
+    var file_path = file.path;
+  });
+
   res.json(200, {status: true})
 });
 
