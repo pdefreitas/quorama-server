@@ -13,13 +13,16 @@ app.post('/artifacts/add', multipartMiddleware, function(req, res, next) {
   console.log(req.files)
 
   var project_name = req.headers['quorama-project'];
-  
-  req.files.forEach(file => {
-    console.log(file)
-    var file_name = file.originalFilename;
-    var file_path = file.path;
-  });
 
+  for (var key in req.files) {
+    if (req.files.hasOwnProperty(key)) {           
+        console.log(key, dictionary[key]);
+        var file = dictionary[key];
+        var file_name = file.originalFilename;
+        var file_path = file.path;
+    }
+  }
+  
   res.json(200, {status: true})
 });
 
