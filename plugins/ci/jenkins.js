@@ -8,7 +8,9 @@ app.get('/', function (req, res, next) {
 })
 
 app.post('/artifacts/add', multipartMiddleware, function(req, res, next) {
-  console.log(req.headers, req.body, req.files);
+  console.log(req.headers)
+  console.log(req.body)
+  console.log(req.files)
 
   var project_name = req.headers['quorama-project'];
   
