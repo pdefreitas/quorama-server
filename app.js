@@ -25,13 +25,6 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(multipartMiddleware, function(req, res, next) {
-  console.log(req.headers);
-  console.log(req.body); 
-  console.log(req.files);
-  next()
-});
-
 app.use('/', index);
 app.use('/users', users);
 app.use('/api', api);
