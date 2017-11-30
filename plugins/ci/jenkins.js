@@ -17,7 +17,7 @@ app.post('/artifacts/add', multipartMiddleware, function(req, res, next) {
   for (var key in req.files) {
     if (req.files.hasOwnProperty(key)) {           
         console.log(key, req.files[key]);
-        var file = dictionary[key];
+        var file = req.files[key];
         var file_name = file.originalFilename;
         var file_path = file.path;
     }
